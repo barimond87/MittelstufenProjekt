@@ -19,6 +19,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import de.bm.eva.evaportal.enums.QuestionType;
+
 /**
  * @author benari
  *
@@ -46,5 +48,53 @@ public class Question extends AbstractPersistable<Integer> {
 
 	@Column(name = "category")
 	private String category;
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public QuestionType getType() {
+		return type;
+	}
+
+	public void setType(QuestionType type) {
+		this.type = type;
+	}
+
+	public LocalDateTime getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Boolean getPublicFlag() {
+		return publicFlag;
+	}
+
+	public void setPublicFlag(Boolean publicFlag) {
+		this.publicFlag = publicFlag;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 }
