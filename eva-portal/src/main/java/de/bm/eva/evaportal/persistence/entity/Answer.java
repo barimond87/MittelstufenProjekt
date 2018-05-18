@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -23,10 +25,12 @@ public class Answer extends AbstractPersistable<Integer> {
 
 	@Column(name = "text")
 	private String text;
-
+	
+	@OneToOne
 	@JoinColumn(name = "question_id")
 	private Question question;
-
+	
+	@ManyToOne
 	@JoinColumn(name = "question_bundle_id")
 	private QuestionBundle questionBundle;
 
