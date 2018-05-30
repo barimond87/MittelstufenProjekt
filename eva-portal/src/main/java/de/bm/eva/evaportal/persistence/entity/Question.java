@@ -4,16 +4,16 @@
 package de.bm.eva.evaportal.persistence.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -48,6 +48,9 @@ public class Question extends AbstractPersistable<Integer> {
 
 	@Column(name = "category")
 	private String category;
+
+	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Answer> answers;
 
 	public String getText() {
 		return text;
@@ -95,6 +98,14 @@ public class Question extends AbstractPersistable<Integer> {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
 	}
 
 }
