@@ -6,7 +6,6 @@ libs/
 tmp/
 node_modules/
 jaxws/jaxws-client/src/main/
-/test
 # OS Files #
 .DS_Store
  
