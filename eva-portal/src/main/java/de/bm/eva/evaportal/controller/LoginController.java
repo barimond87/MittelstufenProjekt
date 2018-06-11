@@ -1,15 +1,13 @@
 package de.bm.eva.evaportal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import de.bm.eva.evaportal.persistence.entity.User;
+import de.bm.eva.evaportal.model.UserLogin;
 import de.bm.eva.evaportal.services.LoginService;
 
 /**
@@ -19,7 +17,7 @@ import de.bm.eva.evaportal.services.LoginService;
 /* Restcontroller - Hier werden die HTTP Anfragen mit den bekannten Methoden (CRUD) verarbeitet
  */
 
-@RestController
+@Controller
 @RequestMapping("/login")
 public class LoginController {
 
@@ -27,9 +25,10 @@ public class LoginController {
 	private LoginService loginService;
 
 	@PostMapping("/")
-	public ResponseEntity<User> login(@Validated @RequestBody(required = true) User userLogin) {
-		User login = loginService.login(userLogin.getUsername(), userLogin.getPasswort());
-		return new ResponseEntity<>(login, HttpStatus.OK);
+	public String login(@Validated @RequestBody(required = true) UserLogin userLogin) {
+		String loginPage = loginService.login(userLogin.getUsername(), userLogin.getPassword());
+		return loginPage;
 	}
+	
 
 }

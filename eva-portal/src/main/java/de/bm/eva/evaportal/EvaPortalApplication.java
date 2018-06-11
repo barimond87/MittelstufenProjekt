@@ -15,7 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan("de.bm.eva.evaportal")
 public class EvaPortalApplication {
 	
 	public static void main(String[] args) {
