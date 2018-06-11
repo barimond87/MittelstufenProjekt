@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import de.bm.eva.evaportal.model.UserLogin;
+import de.bm.eva.evaportal.persistence.entity.User;
 import de.bm.eva.evaportal.services.LoginService;
+
+/**
+ * @author marcelvieren
+ */
+
+/* Restcontroller - Hier werden die HTTP Anfragen mit den bekannten Methoden (CRUD) verarbeitet
+ */
 
 @RestController
 @RequestMapping("/login")
@@ -20,9 +27,8 @@ public class LoginController {
 	private LoginService loginService;
 
 	@PostMapping("/")
-	public ResponseEntity<UserLogin> login(@Validated @RequestBody(required = true) UserLogin userLogin) {
-		System.out.println("Hat funktioniert");
-		UserLogin login = loginService.login(userLogin.getUsername(), userLogin.getPassword());
+	public ResponseEntity<User> login(@Validated @RequestBody(required = true) User userLogin) {
+		User login = loginService.login(userLogin.getUsername(), userLogin.getPasswort());
 		return new ResponseEntity<>(login, HttpStatus.OK);
 	}
 
