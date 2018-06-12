@@ -26,7 +26,8 @@ import de.bm.eva.evaportal.enums.QuestionType;
  *
  */
 /* Entity Klasse
- * Liquibase legt eine DB-Tabelle entsprechend der Klasse an*/
+ * Liquibase legt eine DB-Tabelle entsprechend der Klasse an
+ * Erklärung der Annotations siehe Answer.java*/
 
 @Entity
 @Table(name = "question")
