@@ -14,15 +14,20 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import de.bm.eva.evaportal.exceptions.LoginException;
 import de.bm.eva.evaportal.model.ServiceResponse;
 
+/**
+ * @author Marcel Vieren
+ */
+/* Klasse zum Abfangen von Exceptions */
 @ControllerAdvice
 public class ValidationHandler {
+	
+	/* Intialisiert einen Logger zum Ausgeben von für die Entwicklung relevante Informationen */
 	private static final Logger logger = LoggerFactory.getLogger(ValidationHandler.class);
-
+	
 	@ExceptionHandler(RuntimeException.class)
 	public @ResponseBody ResponseEntity<ServiceResponse> handleBadRequest(HttpServletRequest req, RuntimeException ex) {
 		logger.error("AbstractServiceException: ", ex);
 		HttpStatus status = HttpStatus.NOT_FOUND; // 404
-		// MAPPE HTTPStatus
 		if (ex instanceof LoginException) {
 			status = HttpStatus.BAD_REQUEST; // 400
 

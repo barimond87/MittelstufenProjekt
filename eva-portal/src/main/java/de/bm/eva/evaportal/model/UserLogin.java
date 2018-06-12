@@ -2,6 +2,12 @@ package de.bm.eva.evaportal.model;
 
 import javax.validation.constraints.NotNull;
 
+
+/**
+ * @author Marcel Vieren/ Ben Arimond
+ */
+
+/* UserLogin ist eine Klasse um die Anmeldedaten im Controller entgegen zunehmen und zu speichern  */
 public class UserLogin {
 	@NotNull
 	private String username;

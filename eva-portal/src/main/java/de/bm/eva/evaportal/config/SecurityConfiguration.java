@@ -10,14 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @author Ben Arimond
  */
 
-/* Beim Starten der Applikation wird nach einer Datei mit der Annotation @Configuration gesucht, mit der
- * die Anwendung Konfiguriert werden kann
+/* Beim Starten der Applikation wird nach Dateien mit der Annotation @Configuration gesucht, mit der
+ * verschiedene Teile der Applikation konfiguriert werden können.
+ * In diesem Fall handelt es sich um eine WebSecurity Konfiguration zum verhindern von unerlaubten
+ * Zugriffen auf die Applikation. Dafür wird ein WebSecurityConfigurerAdapter eingebunden und dessen configure() Methode
+ * überschrieben. Beim Componentscan wird diese Konfigurationsklasse aufgenommen und die configure() Methode ausgeführt.
  */
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter  implements ApplicationContextAware{
 
-	//?
+	
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -25,12 +28,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter  impleme
 	}
 
 }
-//@Configuration
-//public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-//	
-//	@Override
-//	protected void configure(HttpSecurity httpSecurity) throws Exception {
-//		httpSecurity.authorizeRequests().antMatchers("/").permitAll();
-//	}
-//	
-//}
+

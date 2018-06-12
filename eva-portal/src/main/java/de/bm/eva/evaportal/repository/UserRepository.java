@@ -5,12 +5,17 @@ import org.springframework.stereotype.Repository;
 
 import de.bm.eva.evaportal.persistence.entity.User;
 
+
+/* Klasse zum Kommunizieren mit der Datenbank
+ * die Klasse JpaRepository bringt Funktionen mit
+ * um die Entitäten aus der Datenbank zu holen */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-//
-//	@Query(value = "SELECT * FROM user WHERE username = ?1", nativeQuery = true)
-//	public List<User> findAllUsers(String username);
-
+	
+	/*
+	 * Modifizierte SQL Query
+	 * Liquibase wandelt diese Funktion in eine SQL Query
+	 * */
 	public User findByUsername(String username);
 	
 }

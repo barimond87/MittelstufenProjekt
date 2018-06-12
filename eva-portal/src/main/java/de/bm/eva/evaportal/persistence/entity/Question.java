@@ -22,9 +22,12 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import de.bm.eva.evaportal.enums.QuestionType;
 
 /**
- * @author benari
+ * @author Ben Arimond
  *
  */
+/* Entity Klasse
+ * Liquibase legt eine DB-Tabelle entsprechend der Klasse an*/
+
 @Entity
 @Table(name = "question")
 public class Question extends AbstractPersistable<Integer> {

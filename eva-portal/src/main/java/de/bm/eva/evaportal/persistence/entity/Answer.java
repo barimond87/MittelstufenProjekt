@@ -13,22 +13,26 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
- * @author benari
+ * @author Ben Arimond
  *
  */
+
+/* Entity Klasse
+ * Liquibase legt eine DB-Tabelle entsprechend der Klasse an*/
+
 @Entity
-@Table(name = "answer")
+@Table(name = "answer")//Legt den Tabellennamen fest
 public class Answer extends AbstractPersistable<Integer> {
 
-	@Column(name = "text")
+	@Column(name = "text")//Legt Spaltennamen fest
 	private String text;
 	
-	@OneToOne
-	@JoinColumn(name = "question_id")
+	@OneToOne//Legt Foreignkeybeziehung wird fest
+	@JoinColumn(name = "question_id")//Legt Foreignkeybeziehung wird fest
 	private Question question;
 	
-	@ManyToOne
-	@JoinColumn(name = "question_bundle_id")
+	@ManyToOne//Legt Foreignkeybeziehung wird fest
+	@JoinColumn(name = "question_bundle_id")//Legt Foreignkeybeziehung wird fest
 	private QuestionBundle questionBundle;
 
 	public String getText() {

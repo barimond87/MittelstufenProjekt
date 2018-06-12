@@ -10,7 +10,8 @@
 
 	<name>eva-portal</name>
 	<description>Mittelstufen Projekt</description>
-
+	
+	<!-- Hier wird SpringBoot den Dependecys hinzugefuegt -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
